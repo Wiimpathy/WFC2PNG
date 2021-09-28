@@ -122,7 +122,7 @@ endif
 # Compiler Flags
 #------------------------------------------------------------------------------
  
-CFLAGS = -O2 $(CDEFS)
+CFLAGS = -O2 $(CDEFS) -Wno-format-truncation
 CXXFLAGS = $(CFLAGS) -std=gnu++11
 
 
