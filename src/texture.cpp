@@ -246,7 +246,11 @@ int STexture::CacheToPNG(const char *wfcpath, size_t wfcsize, const char *png_fi
 		return TEX_BUFFER_ALLOC;
 	}
 	fseek(wfcfile, 14, SEEK_SET);
-	fread(buffertex, wfcsize, 1, wfcfile);
+	size_t result = fread(buffertex, wfcsize, 1, wfcfile);
+	if (result < 0)
+	{
+		return TEX_OPEN_ERROR;	
+	}
 	fclose(wfcfile);
 
 	IMGCTX ctx1 = PNGU_SelectImageFromDevice(png_file);
