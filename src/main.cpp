@@ -18,6 +18,7 @@
 #include <sys/types.h>
 #include <dirent.h>
 #include <string.h>
+#include <cctype>
 #include <algorithm>
 #include <zlib.h>
 #include "pngu.h"
@@ -202,6 +203,8 @@ static int HandleArguments(u32 argcount, char *argv[])
 
 	if(PathError)
 		Usage(argv[0], PathError, (PathError == ARGV_PATH_NOT_FOUND) ? "OUT folder not found." : "Not a wfc file!");
+	
+	return ARGV_OK;
 }
 
 
